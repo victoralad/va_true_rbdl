@@ -43,7 +43,8 @@
 
 
 #ifdef URDF_USE_BOOST
-	#include <boost/shared_ptr.hpp>
+	// #include <boost/shared_ptr.hpp>
+  #include <memory>
 	#include <boost/weak_ptr.hpp>
 #else
 	#include <urdf/boost_replacement/shared_ptr.h>

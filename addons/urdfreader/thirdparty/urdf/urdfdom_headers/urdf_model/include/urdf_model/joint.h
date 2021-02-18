@@ -40,7 +40,8 @@
 #include <string>
 #include <vector>
 #ifdef URDF_USE_BOOST
-#include <boost/shared_ptr.hpp>
+// #include <boost/shared_ptr.hpp>
+#include <memory>
 #define my_shared_ptr my_shared_ptr
 #else
 #include <urdf/boost_replacement/shared_ptr.h>
