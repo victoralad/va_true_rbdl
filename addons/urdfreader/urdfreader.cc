@@ -120,7 +120,10 @@ bool construct_model (Model* rbdl_model, ModelPtr urdf_model, bool floating_base
   }
 
   // depth first traversal: push the first child onto our joint_index_stack
-  joint_index_stack.push(0);
+  // joint_index_stack.push(0);
+  if (link_stack.top()->child_joints.size() > 0) {
+		joint_index_stack.push(0);
+	}
 
   while (link_stack.size() > 0) {
     LinkPtr cur_link = link_stack.top();
