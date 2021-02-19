@@ -59,6 +59,7 @@ bool construct_model (Model* rbdl_model, ModelPtr urdf_model, bool floating_base
 
   // add the bodies in a depth-first order of the model tree
   link_stack.push (link_map[(urdf_model->getRoot()->name)]);
+  cout << urdf_model->getRoot()->name << "yooooooooooooooooooooo" << endl;
 
   // add the root body
   ConstLinkPtr& root = urdf_model->getRoot ();
