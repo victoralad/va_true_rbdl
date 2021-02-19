@@ -165,7 +165,7 @@ bool construct_model (Model* rbdl_model, ModelPtr urdf_model, bool floating_base
     unsigned int rbdl_parent_id = 0;
 
     // rbdl_parent_id = rbdl_model->GetBodyId (urdf_parent->name.c_str());
-    if (urdf_parent->name != "world" && rbdl_model->mBodies.size() != 1)
+    if (urdf_parent->name != "base_link" && rbdl_model->mBodies.size() != 1)
 			rbdl_parent_id = rbdl_model->GetBodyId (urdf_parent->name.c_str());
 
     if (rbdl_parent_id == std::numeric_limits<unsigned int>::max())
