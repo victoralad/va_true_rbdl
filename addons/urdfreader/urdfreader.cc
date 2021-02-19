@@ -120,10 +120,10 @@ bool construct_model (Model* rbdl_model, ModelPtr urdf_model, bool floating_base
   }
 
   // depth first traversal: push the first child onto our joint_index_stack
-  // joint_index_stack.push(0);
-  if (link_stack.top()->child_joints.size() > 0) {
-		joint_index_stack.push(0);
-	}
+  joint_index_stack.push(0);
+  // if (link_stack.top()->child_joints.size() > 0) {
+	// 	joint_index_stack.push(0);
+	// }
 
   while (link_stack.size() > 0) {
     LinkPtr cur_link = link_stack.top();
@@ -164,9 +164,9 @@ bool construct_model (Model* rbdl_model, ModelPtr urdf_model, bool floating_base
     // determine where to add the current joint and child body
     unsigned int rbdl_parent_id = 0;
 
-    // rbdl_parent_id = rbdl_model->GetBodyId (urdf_parent->name.c_str());
-    if (urdf_parent->name != "base_link" && rbdl_model->mBodies.size() != 1)
-			rbdl_parent_id = rbdl_model->GetBodyId (urdf_parent->name.c_str());
+    rbdl_parent_id = rbdl_model->GetBodyId (urdf_parent->name.c_str());
+    // if (urdf_parent->name != "base_link" && rbdl_model->mBodies.size() != 1)
+		// 	rbdl_parent_id = rbdl_model->GetBodyId (urdf_parent->name.c_str());
 
     if (rbdl_parent_id == std::numeric_limits<unsigned int>::max())
       cerr << "Error while processing joint '" << urdf_joint->name
